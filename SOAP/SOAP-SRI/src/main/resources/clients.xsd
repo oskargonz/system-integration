@@ -1,0 +1,96 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://srisoapws.sri.ogasior.pja.edu/clients"
+           targetNamespace="http://srisoapws.sri.ogasior.pja.edu/clients"
+           elementFormDefault="qualified">
+
+    <xs:complexType name="clientDto">
+        <xs:sequence>
+            <xs:element name="id" type="xs:decimal" minOccurs="0"/>
+            <xs:element name="firstName" type="xs:string"/>
+            <xs:element name="lastName" type="xs:string"/>
+            <xs:element name="contractActive" type="xs:boolean"/>
+            <xs:element name="companyName" type="xs:string"/>
+            <xs:element name="PESEL" type="xs:decimal"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="getClientsRequest">
+        <xs:complexType>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getClientsResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="clients" type="tns:clientDto" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getClientByIdRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="clientId" type="xs:decimal"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getClientByIdResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="client" type="tns:clientDto" minOccurs="0" maxOccurs="1"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="addClientRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="client" type="tns:clientDto"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="addClientResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="clientId" type="xs:decimal"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="setPeselRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="clientId" type="xs:decimal"/>
+                <xs:element name="PESEL" type="xs:decimal"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="setPeselResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="client" type="tns:clientDto" minOccurs="0" maxOccurs="1"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="updateClientRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="client" type="tns:clientDto"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="updateClientResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="clientId" type="xs:decimal"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+</xs:schema>

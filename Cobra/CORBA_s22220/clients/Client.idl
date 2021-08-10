@@ -1,0 +1,20 @@
+interface Clients {
+    struct Client {
+        string firstName;
+        string lastName;
+        boolean contractActive;
+        string companyName;
+        long PESEL;
+    };
+
+    typedef sequence<Client> ClientSequence;
+
+    attribute string firstName, lastName, companyName;
+    attribute boolean contractActive;
+    attribute long PESEL;
+    attribute Client client;
+    attribute ClientSequence clients;
+
+    Client setPesel();
+    Client updateClient();
+};
